@@ -17,7 +17,7 @@ class Recipe(models.Model):
         return self.name
 
 class Step(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, related_name='steps', on_delete=models.CASCADE)
     instruction = models.CharField(max_length=1000)
     duration = models.DurationField()
 
