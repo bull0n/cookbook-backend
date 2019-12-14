@@ -1,5 +1,7 @@
 import graphene
 
+
+
 class Query(recipes.schema.Query, graphene.ObjectType):
     pass
 
