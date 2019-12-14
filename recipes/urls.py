@@ -1,13 +1,8 @@
 from django.urls import path, include
 
 from . import views
-
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register(r'recipes', views.RecipeViewSet)
+from graphene_django.views import GraphQLView
 
 urlpatterns = [
-    path('', include(router.urls)),
-    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('', GraphQLView.as_view(graphiql=True)),
 ]
