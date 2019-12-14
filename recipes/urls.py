@@ -1,13 +1,9 @@
 from django.urls import path, include
 
 from . import views
-
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register(r'recipes', views.RecipeViewSet)
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    path('', include(router.urls)),
-    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('', csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
