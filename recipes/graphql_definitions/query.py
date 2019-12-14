@@ -5,7 +5,7 @@ from graphene_django.types import ObjectType
 from ..models import Recipe, Ingredient, Step
 from .types import RecipeType, IngredientType, StepType
 
-class Query(ObjectType):
+class Query(object):
     recipe = graphene.Field(RecipeType, id=graphene.Int())
     recipes = graphene.List(RecipeType)
     steps = graphene.List(StepType)

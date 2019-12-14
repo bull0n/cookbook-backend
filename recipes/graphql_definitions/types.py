@@ -12,5 +12,8 @@ class IngredientType(DjangoObjectType):
         model = Ingredient
 
 class StepType(DjangoObjectType): 
+    def resolve_duration(self, info):
+        return self.duration.total_seconds()
+
     class Meta:
         model = Step
